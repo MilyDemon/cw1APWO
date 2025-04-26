@@ -29,4 +29,5 @@ jobs:
               with: 
                 path: ~/.npm
                 key: ${{ runner.os }}-node-${{matrix.node-version}}-${{ hashFiles('package-lock.js')}}
-                restore-keys: ${{ runner.os }}-node-${{ matrix.node-version }}-
+                restore-keys: | 
+                    ${{ runner.os }}-node-${{ matrix.node-version }}-
