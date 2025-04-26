@@ -24,3 +24,9 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: ${{ matrix.node-version }}
+            - name: Cache Node.js modules
+              uses: action/cache@v4
+              with: 
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{matrix.node-version}}-${{ hashFiles('package-lock.js')}}
+                restore-keys: ${{ runner.os }}-node-${{ matrix.node-version }}-
